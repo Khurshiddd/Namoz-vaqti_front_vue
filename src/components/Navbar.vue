@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="">
         <div class="bg-success py-4">
             <h1 class="text-center">Namoz vaqtlari</h1>
             <div class="d-flex justify-content-between w-25 m-auto pt-4">
