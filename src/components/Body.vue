@@ -5,7 +5,7 @@
                 <h3 class="p-3 mb-2 bg-info text-dark">Hozirgi Vaqt : 9:35:12</h3>
                 <h3 class="p-3 mb-2 bg-light text-dark">Namozgacha : 1:35:12</h3>
             </div>
-            <div class="row mb-5 flex-lg-nowrap par">
+            <div class="row mb-5 flex-lg-nowrap m-auto par">
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">22:22 <br> Bomdod</div>
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">22:22 <br> Quyosh</div>
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">22:22 <br> Peshin</div>
