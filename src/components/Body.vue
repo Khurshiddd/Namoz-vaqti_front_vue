@@ -5,13 +5,13 @@
                 <h3 class="p-3 mb-2 bg-info text-dark">Hozirgi Vaqt : 9:35:12</h3>
                 <h3 class="p-3 mb-2 bg-light text-dark">Namozgacha : 1:35:12</h3>
             </div>
-            <div v-for="time in times" class="row mb-5 flex-lg-nowrap m-auto par">
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.tong_saharlik }}<br> Bomdod(saharlik)</div>
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.quyosh }}<br> Quyosh</div>
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.peshin }}<br> Peshin</div>
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.asr }}<br> Asr</div>
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.shom_iftor }}<br> Shom (iftor)</div>
-                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ time.hufton }}<br> Xufton</div>
+            <div class="row mb-5 flex-lg-nowrap m-auto par">
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.tong_saharlik }}<br> Bomdod(saharlik)</div>
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.quyosh }}<br> Quyosh</div>
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.peshin }}<br> Peshin</div>
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.asr }}<br> Asr</div>
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.shom_iftor }}<br> Shom (iftor)</div>
+                <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.hufton }}<br> Xufton</div>
             </div>
         </div>
     </div>
@@ -32,7 +32,8 @@ export default {
         async getDay() {
             try {
                 const response = await axios.get('https://islomapi.uz/api/present/day?region=Toshkent');
-                    this.times = response.data;
+                    this.times = response.data.times;
+                    console.log(this.times ); 
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
