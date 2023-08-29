@@ -1,5 +1,5 @@
 <template>
-    <div class="rgb">
+    <div class="rgb p-4">
         <h4 class="text-center text-primary"><i class="fa-solid fa-paperclip"></i>Bu Sayt test Rejimida</h4>
         <div class="d-flex justify-content-between w-25 m-auto pt-4">
             <a href="https://t.me/Muhammad_alayhissalom_ummati" class="atag" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i></a>
@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-    
+    name: 'FooterView'
 }
 </script>
 <style scoped>

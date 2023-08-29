@@ -5,7 +5,7 @@
                 <h3 class="p-3 mb-2 bg-info text-dark">Hozirgi Vaqt : {{ currentTime }}</h3>
                 <!-- <h3 class="p-3 mb-2 bg-light text-dark">Namozgacha : 1:35:12</h3> -->
             </div>
-            <div class="row mb-5 flex-lg-nowrap m-auto par">
+            <div class="row mb-5 flex-lg-nowrap par m-auto">
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.tong_saharlik }}<br> Bomdod(saharlik)</div>
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.quyosh }}<br> Quyosh</div>
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.peshin }}<br> Peshin</div>
@@ -25,7 +25,7 @@ export default {
             currentTime: ''
         }
     },
-    name: 'Body',
+    name: 'Day',
     mounted(){
         this.getDay()
     },
