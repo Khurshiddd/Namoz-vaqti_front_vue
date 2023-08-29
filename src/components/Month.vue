@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="mon in monthly">
+                <tr v-for="mon in monthly" :key="mon.day" :class="{'info': mon.day === getDay()}">
                     <th scope="row">{{ mon.day }}</th>
                     <td>{{ mon.weekday }}</td>
                     <td>{{ mon.tong_saharlik }}</td>
@@ -42,6 +42,7 @@ export default {
     mounted(){
         this.getMonth()
         this.monthNumber()
+        this.getDay()
     },
     methods: {
         monthNumber(){
@@ -69,10 +70,17 @@ export default {
                 }
                 this.monthly = month
             })
+        },
+        getDay(){
+            const d = new Date();
+            const b = d.getDate();
+            return b;
         }
     }
 }
 </script>
-<style>
-
+<style scoped>
+    .info{
+        background-color: aquamarine;
+    }
 </style>
