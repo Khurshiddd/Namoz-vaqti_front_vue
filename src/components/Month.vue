@@ -1,7 +1,7 @@
 <template>
     <div class="bg-light table-responsive">
     <h4 class="p-3 bg-info">Bu yilning {{ monthNumber() }}-oyi</h4>
-        <table class="table container">
+        <table class="table container table-sm">
             <thead>
                 <tr>
                     <th scope="col">Kun</th>
