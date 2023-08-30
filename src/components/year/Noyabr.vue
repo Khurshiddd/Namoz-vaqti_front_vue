@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-light table-responsive">
-    <h4 class="p-3 bg-info">Bu yilning {{ monthNumber() }}-oyi</h4>
+    <div class="bg-light">
+    <h3 class="bg-info p-3">Noyabr</h3>
         <table class="table container">
             <thead>
                 <tr>
@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="mon in monthly" :key="mon.day" :class="{'info': mon.day === getDay()}">
+                <tr v-for="mon in monthly">
                     <th scope="row">{{ mon.day }}</th>
                     <td>{{ mon.weekday }}</td>
                     <td>{{ mon.tong_saharlik }}</td>
@@ -31,9 +31,8 @@
 </template>
 <script>
 import axios from 'axios';
-
 export default {
-    name: 'Month',
+    name: 'Noyabr',
     data(){
         return {
             monthly: {},
@@ -41,18 +40,10 @@ export default {
     },
     mounted(){
         this.getMonth()
-        this.monthNumber()
-        this.getDay()
     },
     methods: {
-        monthNumber(){
-            const currentDate = new Date();
-            const currentDay = currentDate.getMonth()+1;
-            return currentDay;
-        },
         getMonth(){
-            const number = this.monthNumber()
-            axios.get(`https://islomapi.uz/api/monthly?region=Toshkent&month=${number}`)
+            axios.get('https://islomapi.uz/api/monthly?region=Toshkent&month=11')
             .then(req => {
                 const times = req.data
                 const month = [];
@@ -70,17 +61,10 @@ export default {
                 }
                 this.monthly = month
             })
-        },
-        getDay(){
-            const d = new Date();
-            const b = d.getDate();
-            return b;
         }
     }
 }
 </script>
-<style scoped>
-    .info{
-        background-color: aquamarine;
-    }
+<style>
+    
 </style>
