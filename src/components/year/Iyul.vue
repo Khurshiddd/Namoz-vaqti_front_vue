@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-light">
+    <div class="bg-light table-responsive">
         <h3 class="bg-info p-3">Iyul</h3>
-        <table class="table container">
+        <table class="table-auto container">
             <thead>
                 <tr>
                     <th scope="col">Kun</th>

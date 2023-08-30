@@ -1,7 +1,7 @@
 <template>
     <div class="bg-light table-responsive">
-    <h4 class="p-3 bg-info">Bu yilning {{ monthNumber() }}-oyi</h4>
-        <table class="table container table-sm">
+        <h4 class="p-3 bg-info col-sm-auto">Bu yilning {{ monthNumber() }}-oyi</h4>
+        <table class="table-auto container">
             <thead>
                 <tr>
                     <th scope="col">Kun</th>
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 <style scoped>
-    .info{
-        background-color: aquamarine;
-    }
+.info{
+    background-color: aquamarine;
+}
 </style>
