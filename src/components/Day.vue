@@ -3,7 +3,7 @@
         <div>
             <div class="text-center my-5">
                 <h3 class="p-3 mb-2 bg-info text-dark">Hozirgi Vaqt : {{ currentTime }}</h3>
-                <!-- <h3 class="p-3 mb-2 bg-light text-dark">Namozgacha : 1:35:12</h3> -->
+                <h3 class="p-3 mb-2 text-dark" style="background-color: rgb(248, 245, 96);">Keyingi namozgacha : {{ timeRemaining }}</h3>
             </div>
             <div class="row mb-5 flex-lg-nowrap par m-auto">
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.tong_saharlik }}<br> Bomdod(saharlik)</div>
@@ -22,23 +22,61 @@ export default {
     data () {
         return {
             times: '',
-            currentTime: ''
+            currentTime: '',
+            timeRemaining: "",
+            response: {
+                times: {
+                    tong_saharlik: '',
+                    quyosh: '',
+                    peshin: '',
+                    asr: '',
+                    shom_iftor: '',
+                    hufton: ''
+                }
+            },
         }
     },
     name: 'Day',
     mounted(){
-        this.getDay()
+        this.getDay();
+        this.calculateTimeRemaining();
+        setInterval(this.calculateTimeRemaining, 1000);
     },
     created() {
         this.timeNow();
         setInterval(this.timeNow, 1000);
     },
     methods: {
+        calculateTimeRemaining() {
+            const currentTime = new Date();
+            const currentHour = currentTime.getHours();
+            const currentMinute = currentTime.getMinutes();
+            
+            const targetTime = new Date();
+            targetTime.setHours(0, 0, 0);
+            targetTime.setHours(currentHour, currentMinute);
+            
+            for (const key in this.response.times) {
+                const [hours, minutes] = this.response.times[key].split(":");
+                targetTime.setHours(Number(hours), Number(minutes));
+                
+                if (currentTime < targetTime) {
+                    const timeDifference = new Date(targetTime - currentTime);
+                    this.timeRemaining = timeDifference.toISOString().substr(11, 8);
+                    break;
+                }
+            }
+        },
         async getDay() {
             try {
-                const response = await axios.get('https://islomapi.uz/api/present/day?region=Toshkent');
-                this.times = response.data.times;
-                console.log(this.times ); 
+                const res = await axios.get('https://islomapi.uz/api/present/day?region=Toshkent');
+                this.times = res.data.times;
+                this.response.times.tong_saharlik = res.data.times.tong_saharlik 
+                this.response.times.quyosh = res.data.times.quyosh 
+                this.response.times.peshin = res.data.times.peshin 
+                this.response.times.asr = res.data.times.asr 
+                this.response.times.shom_iftor = res.data.times.shom_iftor 
+                this.response.times.hufton = res.data.times.hufton 
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
