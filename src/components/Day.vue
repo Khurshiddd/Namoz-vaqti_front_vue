@@ -3,7 +3,7 @@
         <div>
             <div class="text-center my-5">
                 <h3 class="p-3 mb-2 bg-info text-dark">Hozirgi Vaqt : {{ currentTime }}</h3>
-                <h3 class="p-3 mb-2 text-dark" style="background-color: rgb(248, 245, 96);">Keyingi namozgacha : {{ timeRemaining }}</h3>
+                <h3 class="p-3 mb-2 text-dark" style="background-color: rgb(248, 245, 96);">Namozgacha : {{ timeRemaining }}</h3>
             </div>
             <div class="row mb-5 flex-lg-nowrap par m-auto">
                 <div class="col-md-4 col-sm-12 col-lg-2 text-center vaqt">{{ times.tong_saharlik }}<br> Bomdod(saharlik)</div>
